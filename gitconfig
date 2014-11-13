@@ -16,6 +16,6 @@
     pager = less -R
 
 [alias]
-    create-remote-branch = !git push origin origin:refs/heads/$1
+    create-remote-branch = !sh ~/git-commands/create-remote-branch.sh
     track-remote-branch = !git checkout --track -b $1 origin/$1
     create-tag = !sh ~/git-commands/create-tag.sh
