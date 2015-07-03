@@ -19,3 +19,4 @@
     create-remote-branch = !sh ~/git-commands/create-remote-branch.sh
     track-remote-branch = !git checkout --track -b $1 origin/$1
     create-tag = !sh ~/git-commands/create-tag.sh
+    reset-file = !sh ~/git-commands/reset-file.sh
