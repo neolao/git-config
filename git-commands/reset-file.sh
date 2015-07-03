@@ -1,14 +1,11 @@
 #!/bin/bash
 
-echo -n "File: "
-read path
+read -p "File path: " -e path
 
-echo -n "Reset the file \"$path\"? [y/n] "
-read answer
-
+read -p "Reset the file \"$path\"? [y/n] " answer
 if [[ "$answer" != "y" ]]
 then
     exit;
 fi
 
-git checkout HEAD -- $name
+git checkout HEAD -- $path
