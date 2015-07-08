@@ -16,4 +16,4 @@ fi
 
 git branch $name $base
 git checkout $name
-git push origin origin:refs/heads/$name
+git push
