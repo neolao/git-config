@@ -1,19 +1,20 @@
 #!/bin/bash
 
-echo -n "Branch name: "
-read name
+read -e -p "Branch name: " name
 
-echo -n "Based on branch: "
-read base
+current=$(git symbolic-ref --short -q HEAD)
+read -e -p "Based on branch: " -i "$current" base
 
-echo -n "Create the branch \"$name\" based on \"$base\"? [y/n] "
-read answer
+read -e -p "From: " -i "origin" remote
+
+read -e -p "Create the branch \"$name\" based on \"$remote/$base\"? [y/n] " -i "y" answer
 
 if [[ "$answer" != "y" ]]
 then
     exit;
 fi
 
-git branch $name $base
+git fetch
+git branch $name $remote/$base
 git checkout $name
-git push
+git push -u $remote $name
